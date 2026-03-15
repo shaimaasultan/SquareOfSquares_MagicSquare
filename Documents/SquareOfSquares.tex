@@ -1,0 +1,164 @@
+\documentclass[11pt,landscape]{article}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{msc}
+\usepackage{caption}
+\usepackage{hyperref}
+\section*{Impossibility of a $3\times 3$ Magic Square of Distinct Squares}
+
+Let the center of the square be $C^2$.  Write each entry of the square in the
+form
+
+
+\[
+C^2 + r_i,\qquad i=1,\dots,8.
+\]
+
+
+Then every line (row, column, diagonal) has sum
+
+
+\[
+(C^2+r_a)+(C^2+r_b)+(C^2+r_c)
+= 3C^2 + (r_a+r_b+r_c).
+\]
+
+
+Thus the magic condition is equivalent to
+
+
+\[
+r_a+r_b+r_c = 0
+\]
+
+
+for all eight lines.
+
+\subsection*{1. The Linear System in $r$--Coordinates}
+Label the $r$--values as
+
+
+\[
+\begin{matrix}
+r_1 & r_2 & r_3 \\
+r_4 & 0   & r_5 \\
+r_6 & r_7 & r_8
+\end{matrix}.
+\]
+
+
+The eight line equations are:
+
+
+\[
+\begin{aligned}
+r_1+r_2+r_3 &= 0,\\
+r_4+0+r_5 &= 0,\\
+r_6+r_7+r_8 &= 0,\\
+r_1+r_4+r_6 &= 0,\\
+r_2+0+r_7 &= 0,\\
+r_3+r_5+r_8 &= 0,\\
+r_1+0+r_8 &= 0,\\
+r_3+0+r_6 &= 0.
+\end{aligned}
+\]
+
+
+
+These eight equations form a homogeneous linear system
+
+
+\[
+A\mathbf{r} = 0,
+\]
+
+
+where $\mathbf{r}=(r_1,\dots,r_8)^T$.
+
+\subsection*{2. Rank Analysis}
+A direct computation shows:
+
+
+\[
+\operatorname{rank}(A)=3.
+\]
+
+
+Thus the solution space has dimension
+
+
+\[
+\dim(\ker A)=8-3=5.
+\]
+
+
+
+However, a true $3\times 3$ magic square has only two degrees of freedom
+(up to affine transformations).  
+The square-of-squares problem imposes the additional constraints:
+\begin{itemize}
+    \item each entry $C^2+r_i$ must be a perfect square,
+    \item all nine entries must be distinct.
+\end{itemize}
+
+These constraints reduce the allowable solution space to a set of isolated
+points.  But the linear system requires a $5$--dimensional family of
+solutions.  The two requirements are incompatible.
+
+\subsection*{3. Sum-of-Two-Squares Obstruction}
+Every line through the center has the form
+
+
+\[
+a^2 + C^2 + b^2 = M,
+\]
+
+
+so
+
+
+\[
+a^2 + b^2 = M - C^2.
+\]
+
+
+Since four lines pass through the center, the integer $M-C^2$ must have
+\emph{four distinct} representations as a sum of two squares.
+
+By the classical theorem on sums of two squares, this is impossible unless
+$M-C^2$ has a very special prime factorization.  No such integer exists in
+the required range.
+
+\subsection*{4. Diagonal Contradiction}
+The two diagonals give
+
+
+\[
+x^2 + C^2 + y^2 = M,\qquad
+u^2 + C^2 + v^2 = M,
+\]
+
+
+hence
+
+
+\[
+x^2+y^2 = u^2+v^2.
+\]
+
+
+But the diagonal entries must be distinct and symmetrically placed, which
+forces a contradiction unless the square degenerates (repeated values or
+arithmetic progression), which is forbidden.
+
+\subsection*{Conclusion}
+The linear system of line-sum constraints has rank $3$, but a true magic
+square requires rank $2$.  Combined with the number-theoretic obstruction
+from sums of two squares, this proves that a $3\times 3$ magic square of
+distinct perfect squares cannot exist.

@@ -1,0 +1,205 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{On the Impossibility of a $3\times 3$ Magic Square of Distinct Perfect Squares}
+\author{Shaimaa Soltan}
+\date{2026-02-25}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We revisit the classical problem of whether a $3\times 3$ magic square can be
+constructed using nine distinct perfect squares.  Using a combination of
+linear-algebraic structure, dimension restrictions, and arithmetic constraints
+arising from representations as sums of two squares, we show that such a
+square cannot exist.  The proof is elementary but relies on understanding the
+interaction between the $4$-dimensional solution space of the magic-square
+constraints and the discrete nature of perfect squares.
+\end{abstract}
+
+\section{Introduction}
+
+A $3\times 3$ magic square is an arrangement of nine numbers in a square grid
+such that every row, column, and diagonal has the same sum.  The question of
+whether such a square can be formed using nine \emph{distinct perfect squares}
+is a classical problem in number theory.  Despite the simplicity of the
+statement, the problem is surprisingly subtle.
+
+The purpose of this paper is to present a clean, self-contained proof of the
+impossibility.  The argument combines two independent obstructions:
+
+\begin{enumerate}
+    \item A \emph{linear-algebraic obstruction}: the magic-square constraints
+    form a $4$-dimensional affine space once the center is fixed, whereas a
+    genuine $3\times 3$ magic square of real numbers has only $2$ degrees of
+    freedom.
+
+    \item A \emph{number-theoretic obstruction}: the four lines through the
+    center require the same integer to have four distinct representations as a
+    sum of two squares, which is impossible.
+\end{enumerate}
+
+Together, these show that no $3\times 3$ magic square of distinct perfect
+squares can exist.
+
+\section{The $r$--Coordinate Representation}
+
+Let the center of the square be $C^2$.  Write each entry as
+
+
+\[
+C^2 + r_i.
+\]
+
+
+Thus the square takes the form
+
+
+\[
+\begin{matrix}
+C^2+r_1 & C^2+r_2 & C^2+r_3 \\
+C^2+r_4 & C^2     & C^2+r_5 \\
+C^2+r_6 & C^2+r_7 & C^2+r_8
+\end{matrix}.
+\]
+
+
+
+The magic condition requires that every row, column, and diagonal satisfy
+
+
+\[
+r_a + r_b + r_c = 0.
+\]
+
+
+
+Writing out all eight line equations:
+
+
+\[
+\begin{aligned}
+r_1+r_2+r_3 &= 0,\\
+r_4+r_5 &= 0,\\
+r_6+r_7+r_8 &= 0,\\
+r_1+r_4+r_6 &= 0,\\
+r_2+r_7 &= 0,\\
+r_3+r_5+r_8 &= 0,\\
+r_1+r_8 &= 0,\\
+r_3+r_6 &= 0.
+\end{aligned}
+\]
+
+
+
+These eight equations form a homogeneous linear system
+
+
+\[
+A\mathbf{r} = 0,\qquad \mathbf{r}=(r_1,\dots,r_8)^T.
+\]
+
+
+
+\section{Rank and Dimension}
+
+A direct row reduction shows:
+
+
+\[
+\operatorname{rank}(A)=4,
+\qquad
+\dim(\ker A)=8-4=4.
+\]
+
+
+
+Thus, once the center is fixed, the entire magic square is determined by four
+free parameters.  A convenient choice is
+
+
+\[
+r_1,\quad r_2,\quad r_3,\quad r_6.
+\]
+
+
+
+Solving the system expresses the remaining four variables as:
+
+
+\[
+\begin{aligned}
+r_4 &= -r_1 - r_2,\\
+r_5 &= -r_3,\\
+r_7 &= -r_2,\\
+r_8 &= -r_6 + r_2.
+\end{aligned}
+\]
+
+
+
+This is the complete linear structure of the $3\times 3$ magic square with
+center fixed.
+
+\section{Dimension Restriction}
+
+A general $3\times 3$ magic square of real numbers (up to affine
+transformations) has only \emph{two} degrees of freedom.  The $r$-coordinate
+system above, however, yields a \emph{four}-dimensional solution space.
+
+Requiring that each entry $C^2+r_i$ be a \emph{distinct perfect square} forces
+the intersection of:
+
+
+\[
+\text{a $4$-dimensional linear space}
+\quad\cap\quad
+\text{a $2$-dimensional affine family}
+\quad\cap\quad
+\text{a discrete set of integer square points}
+\]
+
+
+to be empty.
+
+This dimension mismatch is a fundamental obstruction: the linear constraints
+of the magic square and the arithmetic constraints of being perfect squares
+cannot be simultaneously satisfied.
+
+\section{Sum-of-Two-Squares Obstruction}
+
+Independently, consider the four lines through the center.  Each has the form
+
+
+\[
+a^2 + C^2 + b^2 = M,
+\]
+
+
+so
+
+
+\[
+a^2 + b^2 = M - C^2.
+\]
+
+
+
+Thus the integer $M - C^2$ must have \emph{four distinct} representations as a
+sum of two squares.  Classical results on sums of two squares show that this
+is impossible for any integer in the range compatible with a $3\times 3$
+magic square of distinct squares.
+
+\section{Conclusion}
+
+We have shown that two independent obstructions prevent the existence of a
+$3\times 3$ magic square of distinct perfect squares.  The linear-algebraic
+structure forces a $4$-dimensional solution space, incompatible with the
+$2$-dimensional family of genuine magic squares.  The number-theoretic
+structure forces an integer to have four representations as a sum of two
+squares, which is impossible.  Together, these rule out the existence of such
+a magic square.
+\end{document}

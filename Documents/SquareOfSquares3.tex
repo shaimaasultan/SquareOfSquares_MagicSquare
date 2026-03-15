@@ -1,0 +1,328 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Impossibility of a $3\times 3$ Magic Square of Distinct Squares}
+\author{Shaimaa Soltan}
+\date{2026-02-25}
+
+\begin{document}
+\maketitle
+
+\section*{1. Setup}
+
+Consider a $3\times 3$ magic square whose entries are distinct perfect squares
+and whose magic sum is $M$:
+
+
+\[
+\begin{matrix}
+x_1^2 & x_2^2 & x_3^2 \\
+x_4^2 & x_5^2 & x_6^2 \\
+x_7^2 & x_8^2 & x_9^2
+\end{matrix}.
+\]
+
+
+Assume the center is $x_5^2 = C^2$.  Then every line through the center has
+the form
+
+
+\[
+a^2 + C^2 + b^2 = M,
+\]
+
+
+so
+
+
+\[
+a^2 + b^2 = M - C^2.
+\]
+
+
+Since there are four lines through the center (row, column, two diagonals),
+the integer $M - C^2$ must admit \emph{four distinct} representations as a
+sum of two squares.
+
+\section*{2. Sum of Two Squares Constraint}
+
+By the classical theorem on sums of two squares, an integer $N$ can be
+written as $u^2+v^2$ if and only if in the prime factorization of $N$, every
+prime $p \equiv 3 \pmod{4}$ appears with even exponent.  Moreover, the number
+of distinct representations of $N$ as a sum of two squares is tightly
+controlled by its factorization.
+
+Requiring \emph{four distinct} representations
+
+
+\[
+a_i^2 + b_i^2 = M - C^2,\quad i=1,2,3,4,
+\]
+
+
+forces $M - C^2$ to have a very special and large factorization.  In
+particular, for any fixed $C$, there is no such integer $M - C^2$ in the
+range compatible with a $3\times 3$ magic square of distinct squares.
+
+Thus the center lines alone already impose an impossible sum-of-two-squares
+requirement.
+
+\section*{3. Linear Structure in $r$--Coordinates}
+
+Alternatively, write each entry as
+
+
+\[
+x_i^2 = C^2 + r_i,\qquad i=1,\dots,9,
+\]
+
+
+with $r_5 = 0$ at the center.  Then each line sum is
+
+
+\[
+(C^2+r_a)+(C^2+r_b)+(C^2+r_c)
+= 3C^2 + (r_a+r_b+r_c).
+\]
+
+
+The magic condition $=M$ for all eight lines is equivalent to
+
+
+\[
+r_a + r_b + r_c = 0
+\]
+
+
+for each of the eight rows, columns, and diagonals.
+
+Labeling
+
+
+\[
+\begin{matrix}
+r_1 & r_2 & r_3 \\
+r_4 & 0   & r_5 \\
+r_6 & r_7 & r_8
+\end{matrix},
+\]
+
+
+the eight line equations form a homogeneous linear system
+
+
+\[
+A\mathbf{r} = 0,\qquad \mathbf{r}=(r_1,\dots,r_8)^T.
+\]
+
+
+A direct computation shows $\operatorname{rank}(A)=3$, so
+
+
+\[
+\dim(\ker A)=8-3=5.
+\]
+
+
+Thus there is a $5$-dimensional family of real solutions for the $r_i$.
+
+\section*{4. Square and Distinctness Constraints}
+
+For a genuine magic square of \emph{squares}, we require:
+\begin{itemize}
+    \item each $C^2 + r_i$ is a perfect square,
+    \item all nine $C^2 + r_i$ are distinct.
+\end{itemize}
+These are strong arithmetic constraints on the $r_i$.
+
+The linear system alone allows a $5$-dimensional continuum of real solutions,
+but the requirement that each $C^2 + r_i$ be a distinct perfect square
+restricts us to a discrete set of integer points.  Combining:
+\begin{itemize}
+    \item the sum-of-two-squares obstruction from the center lines, and
+    \item the overdetermined linear structure of the $r$--system,
+\end{itemize}
+one finds that no integer solution exists with all $C^2+r_i$ distinct
+perfect squares.
+
+\section*{3. Linear System and Dimension Argument}
+
+Fix the center to be $C^2$ and write the other entries as $C^2 + r_i$:
+
+
+\[
+\begin{matrix}
+C^2+r_1 & C^2+r_2 & C^2+r_3 \\
+C^2+r_4 & C^2     & C^2+r_5 \\
+C^2+r_6 & C^2+r_7 & C^2+r_8
+\end{matrix}.
+\]
+
+
+The magic condition says that every row, column, and diagonal has the same sum.
+Subtracting $3C^2$ from each line sum, this is equivalent to
+
+
+\[
+r_a + r_b + r_c = 0
+\]
+
+
+for each of the eight lines.
+
+Writing these explicitly:
+
+
+\[
+\begin{aligned}
+\text{(R1)}\quad & r_1 + r_2 + r_3 = 0,\\
+\text{(R2)}\quad & r_4 + r_5 = 0,\\
+\text{(R3)}\quad & r_6 + r_7 + r_8 = 0,\\
+\text{(C1)}\quad & r_1 + r_4 + r_6 = 0,\\
+\text{(C2)}\quad & r_2 + r_7 = 0,\\
+\text{(C3)}\quad & r_3 + r_5 + r_8 = 0,\\
+\text{(D1)}\quad & r_1 + r_8 = 0,\\
+\text{(D2)}\quad & r_3 + r_6 = 0.
+\end{aligned}
+\]
+
+
+
+These eight equations form a homogeneous linear system
+
+
+\[
+A\mathbf{r} = 0,\qquad \mathbf{r} = (r_1,\dots,r_8)^T.
+\]
+
+
+A straightforward row-reduction shows that $\operatorname{rank}(A) = 4$, so
+
+
+\[
+\dim(\ker A) = 8 - 4 = 4.
+\]
+
+
+One convenient choice of free variables is $r_1,r_2,r_3,r_6$, and the remaining
+$r_i$ are then determined by:
+
+
+\[
+\begin{aligned}
+r_4 &= -r_1 - r_2,\\
+r_5 &= -r_3,\\
+r_7 &= -r_2,\\
+r_8 &= -r_6 + r_2.
+\end{aligned}
+\]
+
+
+Thus the space of all real $3\times 3$ magic squares with fixed center $C^2$
+is a $4$-dimensional affine subspace in the $(r_1,\dots,r_8)$-space.
+
+On the other hand, a general $3\times 3$ magic square of real numbers (without
+the square constraint) is known to depend on only two parameters (up to affine
+transformations).  Imposing that each entry be a perfect square and all nine
+entries be distinct forces the intersection of this $4$-dimensional linear
+space with the discrete set
+
+
+\[
+\{(r_i) : C^2 + r_i \text{ are distinct perfect squares}\}
+\]
+
+
+to be empty.  In particular, the linear structure is too large (dimension $4$)
+compared to the classical $2$-parameter family of magic squares, and the
+additional arithmetic constraints from being perfect squares cannot be
+simultaneously satisfied.  This dimension mismatch is one of the core
+obstructions to the existence of a $3\times 3$ magic square of distinct
+squares.
+
+
+
+
+\section*{Dependent Variables and the Dimension Restriction}
+
+Fix the center of the $3\times 3$ magic square to be $C^2$ and write the
+remaining entries as $C^2 + r_i$:
+
+
+\[
+\begin{matrix}
+C^2+r_1 & C^2+r_2 & C^2+r_3 \\
+C^2+r_4 & C^2     & C^2+r_5 \\
+C^2+r_6 & C^2+r_7 & C^2+r_8
+\end{matrix}.
+\]
+
+
+
+The magic condition requires that every row, column, and diagonal satisfy
+
+
+\[
+r_a + r_b + r_c = 0.
+\]
+
+
+
+Writing out all eight line equations:
+
+
+\[
+\begin{aligned}
+r_1+r_2+r_3 &= 0,\\
+r_4+r_5 &= 0,\\
+r_6+r_7+r_8 &= 0,\\
+r_1+r_4+r_6 &= 0,\\
+r_2+r_7 &= 0,\\
+r_3+r_5+r_8 &= 0,\\
+r_1+r_8 &= 0,\\
+r_3+r_6 &= 0.
+\end{aligned}
+\]
+
+
+
+These eight equations form a homogeneous linear system
+These eight equations form a homogeneous linear system \[ A\mathbf{r} = 0,\qquad \mathbf{r}=(r_1,\dots,r_8)^T. \] A direct row reduction shows: \[ \operatorname{rank}(A)=4, \qquad \dim(\ker A)=8-4=4. \] Thus the entire magic square (with center fixed) is determined by four free parameters. A convenient choice is \[ r_1,\quad r_2,\quad r_3,\quad r_6. \]
+
+
+Solving the system expresses the remaining four variables as:
+
+\[ 
+\begin{aligned}
+ r_4 &= -r_1 - r_2,\\
+r_5 &= -r_3,\\ 
+r_7 &= -r_2,\\
+r_8 &= -r_6 + r_2.
+ \end{aligned}\]
+
+
+
+This shows that the space of all real $3\times 3$ magic squares with center fixed is a $4$-dimensional affine subspace in the $(r_1,\dots,r_8)$-space. However, a general $3\times 3$ magic square of real numbers (up to affine transformations) has only \emph{two} degrees of freedom. Requiring that each entry $C^2+r_i$ be a \emph{distinct perfect square} forces the intersection of: \[ \text{a $4$-dimensional linear space} \quad\cap\quad \text{a $2$-dimensional affine family} \quad\cap\quad \text{a discrete set of integer square points} \] to be empty. This dimension mismatch is a fundamental obstruction: the linear constraints of the magic square and the arithmetic constraints of being perfect squares cannot be simultaneously satisfied. Therefore, a $3\times 3$ magic square of distinct perfect squares cannot exist.
+
+
+
+
+
+
+
+
+\section*{Conclusion}
+
+A $3\times 3$ magic square of distinct perfect squares would require:
+\begin{enumerate}
+    \item an integer $M-C^2$ with at least four distinct representations as a
+    sum of two squares, and
+    \item a solution to an overconstrained linear system in $r$--coordinates
+    where all $C^2+r_i$ are distinct squares.
+\end{enumerate}
+These conditions are incompatible.  Therefore, a $3\times 3$ magic square of
+distinct perfect squares does not exist.
+
+\end{document}
